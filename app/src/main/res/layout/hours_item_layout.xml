@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    android:elevation="10dp"
+    app:cardUseCompatPadding="true"
+    android:padding="2dp"
+    app:cardCornerRadius="10dp"
+    android:background="@color/black_shade">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/tvTimeItem"
+        style="@style/item_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12:00 AM" />
+
+    <TextView
+        android:id="@+id/tvTemperatureItem"
+        style="@style/item_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="30 C" />
+
+    <ImageView
+        android:id="@+id/ivConditionItem"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/tvWindSpeedItem"
+        style="@style/item_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20 km/h" />
+</LinearLayout>
+</androidx.cardview.widget.CardView>

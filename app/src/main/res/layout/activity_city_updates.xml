@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/weather_image"
+    android:scaleType="centerCrop"
+    tools:context=".city_updates.CityUpdatesActivity"
+    >
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/startingAnimation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/lottie_animation"
+        android:visibility="gone"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/weather_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/uiLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:padding="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/etEnterCityName"
+                style="@style/main_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:layout_marginVertical="16dp"
+                android:background="@drawable/tv_background"
+                android:drawableRight="@drawable/ic_search"
+                android:drawablePadding="2dp"
+                android:ems="10"
+                android:textSize="15sp"
+                android:gravity="center_vertical"
+                android:hint="Enter the name of city"
+                android:textColorHint="@color/dark_liver"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvCityName"
+                style="@style/main_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:padding="2dp"
+                android:text="London"
+                android:textSize="35sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etEnterCityName" />
+
+            <TextView
+                android:id="@+id/tvTemperature"
+                style="@style/main_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:text="-1"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCityName" />
+
+            <ImageView
+                android:id="@+id/ivCondition"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="2dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="@+id/tvTemperature"
+                app:layout_constraintStart_toStartOf="@+id/tvTemperature"
+                app:layout_constraintTop_toBottomOf="@+id/tvTemperature"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/tvCondition"
+                style="@style/main_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="Snow"
+                app:layout_constraintEnd_toEndOf="@+id/ivCondition"
+                app:layout_constraintStart_toStartOf="@+id/ivCondition"
+                app:layout_constraintTop_toBottomOf="@+id/ivCondition" />
+
+            <TextView
+                android:id="@+id/tvHourlyWeatherForecast"
+                style="@style/main_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:padding="2dp"
+                android:text="Hourly forecast"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCondition" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleViewHours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/recycle_view_background"
+                android:orientation="horizontal"
+                android:padding="2dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvHourlyWeatherForecast" />
+
+            <TextView
+                android:id="@+id/tvDailyWeatherForecast"
+                style="@style/main_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:padding="2dp"
+                android:text="Daily forecast"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycleViewHours" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleViewDays"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/recycle_view_background"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"
+                android:padding="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDailyWeatherForecast" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
